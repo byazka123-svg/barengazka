@@ -8,6 +8,7 @@ import {
   MessageCircle, 
   Linkedin, 
   Instagram, 
+  Music,
   ExternalLink, 
   ChevronDown, 
   Zap, 
@@ -134,7 +135,7 @@ const Navbar = () => {
             <a href="#hero" className="text-2xl font-display font-bold tracking-tighter">
               AZKA<span className="text-accent">.</span>
             </a>
-            <span className="hidden lg:block text-[10px] uppercase tracking-[0.3em] text-white/30 border-l border-white/10 pl-6 py-1">creative & strategist</span>
+            <span className="hidden lg:block text-[10px] uppercase tracking-[0.3em] text-white/30 border-l border-white/10 pl-6 py-1">digital creative & strategist</span>
           </div>
         <div className="hidden md:flex gap-8 text-sm font-medium">
           {['About', 'Portfolio', 'Skills', 'Tools', 'Contact'].map((item) => (
@@ -501,11 +502,15 @@ export default function App() {
             
             <div className="flex flex-col gap-8">
               <div className="flex items-center gap-6 group">
-                <div className="text-[10px] uppercase font-bold text-accent tracking-[0.3em] w-20">Email</div>
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 group-hover:border-accent/50 transition-colors">
+                  <Mail className="w-5 h-5 text-accent" />
+                </div>
                 <a href="mailto:barengazka@gmail.com" className="text-xl font-medium border-b border-transparent hover:border-accent hover:text-accent transition-all">barengazka@gmail.com</a>
               </div>
               <div className="flex items-center gap-6 group">
-                <div className="text-[10px] uppercase font-bold text-accent tracking-[0.3em] w-20 text-xs">Instagram & TikTok</div>
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 group-hover:border-accent/50 transition-colors">
+                  <Instagram className="w-5 h-5 text-accent" />
+                </div>
                 <a href="https://instagram.com/barengazka.id" className="text-xl font-medium border-b border-transparent hover:border-accent hover:text-accent transition-all">@barengazka.id</a>
               </div>
             </div>
@@ -529,7 +534,7 @@ export default function App() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-2">
             <p className="text-2xl font-display font-bold tracking-tighter">AZKA<span className="text-accent">.</span></p>
-            <p className="text-white/20 text-xs uppercase tracking-widest leading-none">creative & strategist</p>
+            <p className="text-white/20 text-xs uppercase tracking-widest leading-none">digital creative & strategist</p>
           </div>
           <p className="text-white/40 text-xs font-light">
             © {new Date().getFullYear()} Azka.
