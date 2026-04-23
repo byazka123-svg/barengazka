@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import SMMPage from './pages/SMMPage';
 import { 
   Award, 
   BookOpen, 
@@ -13,6 +15,7 @@ import {
   ChevronDown, 
   Zap, 
   Target, 
+  Sparkles,
   ArrowRight,
   X
 } from 'lucide-react';
@@ -132,12 +135,12 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl z-50 transition-all duration-300 ${isScrolled ? 'bg-navy/80 backdrop-blur-md py-4 border-b border-white/5 shadow-lg px-6 md:px-12' : 'bg-transparent py-8 px-6 md:px-12'}`}>
         <div className="flex justify-between items-baseline">
           <div className="flex items-center gap-6">
-            <a href="#hero" className="text-2xl font-display font-bold tracking-tighter">
+            <Link to="/" className="text-2xl font-display font-bold tracking-tighter hover:text-accent transition-colors">
               AZKA<span className="text-accent">.</span>
-            </a>
+            </Link>
             <span className="hidden lg:block text-[10px] uppercase tracking-[0.3em] text-white/30 border-l border-white/10 pl-6 py-1">digital creative & strategist</span>
           </div>
-        <div className="hidden md:flex gap-8 text-sm font-medium">
+        <div className="hidden md:flex gap-8 text-sm font-medium items-center">
           {['About', 'Portfolio', 'Skills', 'Tools', 'Contact'].map((item) => (
             <a 
               key={item} 
@@ -153,8 +156,19 @@ const Navbar = () => {
   );
 };
 
-export default function App() {
+function Portfolio() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   return (
     <div className="min-h-screen bg-[#060a16] selection:bg-accent selection:text-navy">
@@ -213,13 +227,15 @@ export default function App() {
                   </div>
                 </div>
 
-                <a 
-                  href="#contact" 
-                  className="w-full md:w-auto px-10 py-5 bg-accent text-navy font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-white transition-all group md:order-1"
-                >
-                  Kontak Saya
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+                <div className="flex flex-wrap gap-4 w-full md:w-auto md:order-1">
+                  <a 
+                    href="#contact" 
+                    className="w-full md:w-auto px-8 py-4 bg-accent text-navy font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-white transition-all group"
+                  >
+                    Kontak Saya
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -547,5 +563,16 @@ export default function App() {
       </footer>
       </div>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/smm" element={<SMMPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
