@@ -42,7 +42,7 @@ const ImageModal = ({ src, onClose }: { src: string, onClose: () => void }) => (
   </motion.div>
 );
 
-const WA_NUMBER = "6289561111978";
+const WA_NUMBER = "0895611111978";
 
 const SMMPage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -201,7 +201,7 @@ const SMMPage = () => {
                 Tampil Profesional di Sosmed<br className="hidden md:block" /> Bukan Lagi <em className="italic text-smm-accent-muted">Privilege</em><br className="hidden md:block" /> yang Mahal.
               </h2>
               <p className="text-sm md:text-base text-white/55 leading-relaxed mb-14 overflow-hidden">
-                Azka handle semuanya — dari riset ide konten, desain visual, penulisan caption, sampai upload tepat waktu. Kamu tinggal fokus jualan.
+                Perkenalkan saya Azka, digital marketing berpengalaman membantu UMKM lebih dari 4 tahun, saya akan handle semuanya — dari riset ide konten, desain visual, penulisan caption, sampai upload tepat waktu. Kamu tinggal fokus jualan.
               </p>
             </motion.div>
 
@@ -271,7 +271,7 @@ const SMMPage = () => {
                 className="bg-smm-white border-2 border-smm-accent rounded-2xl p-10 md:p-12 relative group shadow-lg shadow-smm-accent/15 hover:shadow-2xl hover:shadow-smm-accent/25 transition-all"
               >
                 <div className="absolute -top-3.5 right-5 bg-smm-accent text-white text-[12px] font-semibold px-3.5 py-1.5 rounded-full">⭐ PALING LARIS</div>
-                <div className="text-[11px] font-bold uppercase tracking-widest text-smm-accent mb-5">PELING WORTH IT</div>
+                <div className="text-[11px] font-bold uppercase tracking-widest text-smm-accent mb-5">PALING WORTH IT</div>
                 <div className="text-sm text-smm-gray-400 line-through mb-1">Rp 1.500.000</div>
                 <div className="font-serif text-5xl text-smm-black leading-none mb-1">500rb</div>
                 <div className="text-xs text-smm-gray-400 mb-4">per bulan</div>
