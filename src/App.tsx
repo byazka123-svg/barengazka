@@ -302,24 +302,6 @@ function Portfolio() {
           </div>
         </section>
 
-        {/* --- SERVICES SECTION --- */}
-        <section id="services" className="py-32 px-6 md:px-12 bg-navy">
-          <SectionHeading subtitle="Offerings">Layanan & Jasa</SectionHeading>
-          <div className="grid md:grid-cols-2 gap-6">
-            <ServiceCard 
-              icon={<Layout className="w-8 h-8" />}
-              title="SMM Management"
-              desc="Solusi konten profesional untuk pertumbuhan bisnis kamu di Instagram & TikTok. Strategi bulanan lengkap."
-              link="/smm"
-            />
-            <ServiceCard 
-              icon={<FileText className="w-8 h-8" />}
-              title="CV Gratis"
-              desc="Membantu pembuatan CV profesional GRATIS untuk bantu kamu dapat pekerjaan impian."
-              link="/cv-gratis"
-            />
-          </div>
-        </section>
 
         {/* --- PORTFOLIO SECTION --- */}
         <section id="portfolio" className="py-24 px-6 md:px-12 bg-bg-portfolio">
