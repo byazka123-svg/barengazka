@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import SMMPage from './pages/SMMPage';
+import FreeCVPage from './pages/FreeCVPage';
 import { 
   Award, 
   BookOpen, 
@@ -17,7 +18,10 @@ import {
   Target, 
   Sparkles,
   ArrowRight,
-  X
+  X,
+  Layout,
+  FileText,
+  Monitor
 } from 'lucide-react';
 
 // --- Components ---
@@ -118,6 +122,28 @@ const ToolIcon = ({ name, colorClass = "group-hover:border-accent/30 group-hover
       <span className="text-[9px] font-bold text-center px-1 uppercase tracking-tighter text-white/50 group-hover:text-inherit">{name}</span>
     </div>
   </div>
+);
+
+const ServiceCard = ({ icon: Icon, title, desc, link }: { icon: any, title: string, desc: string, link: string }) => (
+  <Link to={link} className="block group">
+    <motion.div 
+      whileHover={{ y: -8 }}
+      className="bg-deep-navy border border-white/10 p-8 rounded-3xl transition-all hover:border-accent/40 relative overflow-hidden h-full"
+    >
+      <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+        {React.cloneElement(Icon as React.ReactElement, { className: "w-24 h-24" })}
+      </div>
+      <div className="relative z-10">
+        <div className="w-12 h-12 bg-accent/10 border border-accent/20 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-navy transition-all">
+          {Icon}
+        </div>
+        <h3 className="text-2xl font-bold mb-3 flex items-center gap-2">
+          {title} <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+        </h3>
+        <p className="text-white/50 leading-relaxed font-light">{desc}</p>
+      </div>
+    </motion.div>
+  </Link>
 );
 
 // --- Sections ---
@@ -229,7 +255,9 @@ function Portfolio() {
 
                 <div className="flex flex-wrap gap-4 w-full md:w-auto md:order-1">
                   <a 
-                    href="#contact" 
+                    href="https://wa.me/0895611111978" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full md:w-auto px-8 py-4 bg-accent text-navy font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-white transition-all group"
                   >
                     Kontak Saya
@@ -271,6 +299,25 @@ function Portfolio() {
                 </div>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* --- SERVICES SECTION --- */}
+        <section id="services" className="py-32 px-6 md:px-12 bg-navy">
+          <SectionHeading subtitle="Offerings">Layanan & Jasa</SectionHeading>
+          <div className="grid md:grid-cols-2 gap-6">
+            <ServiceCard 
+              icon={<Layout className="w-8 h-8" />}
+              title="SMM Management"
+              desc="Solusi konten profesional untuk pertumbuhan bisnis kamu di Instagram & TikTok. Strategi bulanan lengkap."
+              link="/smm"
+            />
+            <ServiceCard 
+              icon={<FileText className="w-8 h-8" />}
+              title="CV Gratis"
+              desc="Membantu pembuatan CV profesional GRATIS untuk bantu kamu dapat pekerjaan impian."
+              link="/cv-gratis"
+            />
           </div>
         </section>
 
@@ -513,28 +560,31 @@ function Portfolio() {
           >
             <SectionHeading subtitle="Let's Connect">Let's Work Together</SectionHeading>
             <p className="text-xl text-white/60 mb-12 max-w-md">
-              Silakan hubungi saya untuk diskusi lebih lanjut mengenai kolaborasi potensial atau pertanyaan lainnya.
+              Silakan hubungi saya untuk diskusi lebih lanjut mengenai kolaborasi potensial atau pertanyaan lainnya melalui WhatsApp.
             </p>
             
             <div className="flex flex-col gap-8">
               <div className="flex items-center gap-6 group">
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 group-hover:border-accent/50 transition-colors">
-                  <Mail className="w-5 h-5 text-accent" />
+                  <MessageCircle className="w-5 h-5 text-accent" />
                 </div>
-                <a href="mailto:barengazka@gmail.com" className="text-xl font-medium border-b border-transparent hover:border-accent hover:text-accent transition-all">barengazka@gmail.com</a>
-              </div>
-              <div className="flex items-center gap-6 group">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 group-hover:border-accent/50 transition-colors">
-                  <Instagram className="w-5 h-5 text-accent" />
-                </div>
-                <a href="https://instagram.com/barengazka.id" className="text-xl font-medium border-b border-transparent hover:border-accent hover:text-accent transition-all">@barengazka.id</a>
+                <a 
+                  href="https://wa.me/0895611111978" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl font-medium border-b border-transparent hover:border-accent hover:text-accent transition-all"
+                >
+                  0895611111978 (WhatsApp)
+                </a>
               </div>
             </div>
           </motion.div>
 
           <div className="flex items-center justify-center lg:justify-end">
             <motion.a 
-              href="mailto:barengazka@gmail.com"
+              href="https://wa.me/0895611111978"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-accent text-navy px-12 py-5 rounded-full font-bold text-lg hover:brightness-110 transition-all shadow-2xl shadow-accent/20"
@@ -572,6 +622,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Portfolio />} />
         <Route path="/smm" element={<SMMPage />} />
+        <Route path="/cv-gratis" element={<FreeCVPage />} />
       </Routes>
     </BrowserRouter>
   );
